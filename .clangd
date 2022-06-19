@@ -1,0 +1,8 @@
+CompileFlags:
+    Add:
+        - "-DQMK_KEYBOARD_H=<quantum.h>"
+        - "-I/usr/include"
+        - "-I/usr/local/include"
+        - "-I/home/overpeek/devel/qmk_firmware"
+        - "-I/home/overpeek/devel/qmk_firmware/quantum"
+        - "-I/home/overpeek/devel/qmk_firmware/tmk_core/common"

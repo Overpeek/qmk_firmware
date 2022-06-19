@@ -3,6 +3,19 @@
 
 #include "config_common.h"
 
+// #define MK_KINETIC_SPEED
+#define MOUSEKEY_DELAY 0
+#define MOUSEKEY_INTERVAL 6
+#define MOUSEKEY_MOVE_DELTA 1
+#define MOUSEKEY_MAX_SPEED 100
+#define MOUSEKEY_TIME_TO_MAX 180
+#define MOUSEKEY_WHEEL_DELAY 0
+#define MOUSEKEY_WHEEL_INTERVAL 40
+#define MOUSEKEY_WHEEL_TIME_TO_MAX 180
+// #define MOUSEKEY_BASE_SPEED 5000
+// #define MOUSEKEY_DECELERATED_SPEED 20
+// #define MOUSEKEY_ACCELERATED_SPEED 10000
+
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0x3384
 #define PRODUCT_ID      0x0001
