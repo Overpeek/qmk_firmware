@@ -1,3 +1,4 @@
+#include "send_string_keycodes.h"
 #include QMK_KEYBOARD_H
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -124,7 +125,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			SEND_STRING(SS_TAP(X_RALT) "e=");
 			return false;
 		}
-		break;
+        break;
+    case KC_1:
+        // windows bluescreen macro ;)
+        if (f24_held && record->event.pressed) {
+            // SS_DELAY(5)
+            SEND_STRING(SS_LGUI("x") SS_DELAY(1) "a" SS_DELAY(400) SS_TAP(X_LEFT) SS_TAP(X_ENTER) SS_DELAY(1000) "wininit" SS_TAP(X_ENTER));
+            return false;
+        }
+        break;
   }
 
   return true;
