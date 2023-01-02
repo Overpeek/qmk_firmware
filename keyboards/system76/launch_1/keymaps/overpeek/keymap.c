@@ -72,53 +72,41 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_LSFT:
             shift_held = record->event.pressed;
             break;
+    }
 
-        // Macros for äÄöÖ€
+    if (!f24_held || !record->event.pressed) {
+        return true;
+    }
+
+    switch (keycode) {
         case KC_A:
-            if (f24_held && record->event.pressed) {
-                if (!shift_held) {
-                    SEND_STRING(SS_TAP(X_RALT) "\"a");
-                } else {
-                    SEND_STRING(SS_TAP(X_RALT) "\"A");
-                }
-                return false;
+            if (!shift_held) {
+                SEND_STRING(SS_TAP(X_RALT) "\"a");
+            } else {
+                SEND_STRING(SS_TAP(X_RALT) "\"A");
             }
             break;
         case KC_O:
-            if (f24_held && record->event.pressed) {
-                if (!shift_held) {
-                    SEND_STRING(SS_TAP(X_RALT) "\"o");
-                } else {
-                    SEND_STRING(SS_TAP(X_RALT) "\"O");
-                }
-                return false;
+            if (!shift_held) {
+                SEND_STRING(SS_TAP(X_RALT) "\"o");
+            } else {
+                SEND_STRING(SS_TAP(X_RALT) "\"O");
             }
             break;
         case KC_E:
-            if (f24_held && record->event.pressed) {
-                SEND_STRING(SS_TAP(X_RALT) "e=");
-                return false;
-            }
+            SEND_STRING(SS_TAP(X_RALT) "e=");
             break;
-            /*case KC_1:
+            /*
+            case KC_1:
                 // windows bluescreen macro ;)
-                if (f24_held && record->event.pressed) {
-                     // SS_DELAY(5)
-                    SEND_STRING(SS_LGUI("x") SS_DELAY(1) "a" SS_DELAY(400) SS_TAP(X_LEFT) SS_TAP(X_ENTER) SS_DELAY(1000) "wininit" SS_TAP(X_ENTER));
-                    return false;
-                }
-                return ctrl_v_spam(1, record);
+                SEND_STRING(SS_LGUI("x") SS_DELAY(1) "a" SS_DELAY(400) SS_TAP(X_LEFT) SS_TAP(X_ENTER) SS_DELAY(1000) "wininit" SS_TAP(X_ENTER));
+                break;
             case KC_2:
                 // windows rickroll
-                if (f24_held && record->event.pressed) {
-                    // SS_DELAY(5)
-                    SEND_STRING(SS_LGUI("x") SS_DELAY(1) "a" SS_DELAY(400) SS_TAP(X_LEFT) SS_TAP(X_ENTER) SS_DELAY(1000) "start-process https://youtu.be/dQw4w9WgXcQ" SS_TAP(X_ENTER));
-                    return false;
-                }
-                return ctrl_v_spam(10, record);
-            case KC_3:
-                return ctrl_v_spam(10, record);*/
+                SEND_STRING(SS_LGUI("x") SS_DELAY(1) "a" SS_DELAY(400) SS_TAP(X_LEFT) SS_TAP(X_ENTER) SS_DELAY(1000) "start-process https://youtu.be/dQw4w9WgXcQ" SS_TAP(X_ENTER));
+                break;
+            */
     }
 
-    return true;
+    return false;
 }
