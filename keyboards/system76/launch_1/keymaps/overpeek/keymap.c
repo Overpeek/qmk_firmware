@@ -97,10 +97,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             SEND_STRING(SS_TAP(X_RALT) "e=");
             break;
         case KC_F1:
-            SEND_STRING("tL" SS_TAP(X_RALT) "\"aski!" SS_TAP(X_ENTER));
+            SEND_STRING("tLinuxMasterRace FTW!" SS_TAP(X_ENTER));
             break;
         case KC_F2:
             SEND_STRING("tWhat a Sardino!" SS_TAP(X_ENTER));
+            break;
+        case KC_F3:
+            SEND_STRING("tWhat a MRzoska!" SS_TAP(X_ENTER));
             break;
             /*
             case KC_1:
